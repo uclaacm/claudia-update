@@ -1,7 +1,7 @@
 {
   "name": "claudia-update",
   "version": "1.0.0",
-  "description": "",
+  "description": "Seemlessly deploy to AWS via Github actions",
   "main": "index.js",
   "scripts": {
     "start": "node run-server.ts",
