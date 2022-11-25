@@ -1,1 +1,1 @@
-# lambda-claudia
+# Integrate seemless deployment to EC2 and Claudia via Github actions
