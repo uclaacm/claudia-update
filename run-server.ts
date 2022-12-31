@@ -1,5 +1,5 @@
-var server = require('./app.ts');
+const { server, portNum } = require('./app.ts');
 
-server.listen(3000, () => {
-    console.log(`Example app listening on port ${3000}`)
+server.listen(portNum, () => {
+    console.log(`Example app listening on port ${portNum}`)
 });
