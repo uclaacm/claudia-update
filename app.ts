@@ -6,4 +6,12 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/blog', (req, res) => {
+  res.send("<h1>This is our Blog page!</h1>")
+})
+
+app.get('/about', (req, res) => {
+  res.send("<h1>This is our About page!</h1>")
+})
+
 module.exports = {server: app, portNum: port};
