@@ -15,5 +15,4 @@ jobs:
       - shell: bash
         env: 
           SUPER_SECRET: ${{ secrets.SECRET }}
-        run: |
-          cat "$SUPER_SECRET"
+        run: cat "$SUPER_SECRET"
