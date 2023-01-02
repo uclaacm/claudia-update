@@ -12,5 +12,8 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
       - run: echo ${{ github.repository }}
-      - name: Show secretsomg.txt contents
-        run: cat ./secretsomg.txt
+      - shell: bash
+        env: 
+          SUPER_SECRET: ${{ secrets.SECRET }}
+        run: |
+          cat "$SUPER_SECRET"
