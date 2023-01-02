@@ -13,6 +13,7 @@ jobs:
       - run: bats -v
       - run: echo ${{ github.repository }}
       - shell: bash
-        env: 
-          SUPER_SECRET: ${{ secrets.SECRET }}
-        run: cat "$SUPER_SECRET"
+        run: cat ${{ secrets.SECRET }}
+        # env: 
+        #   SUPER_SECRET: ${{ secrets.SECRET }}
+        # run: cat "$SUPER_SECRET"
