@@ -23,6 +23,7 @@ jobs:
       # - run: export AWS_DEFAULT_PROFILE=backend-migration
       # - run: echo $AWS_REGION
       # - run: aws configure list --profile backend-migration
+      - run: aws iam list-roles
       - run: claudia create --region us-west-1 --handler lambda.handler 
   update-claudia:
     runs-on: ubuntu-latest
