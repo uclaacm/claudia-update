@@ -14,7 +14,6 @@ jobs:
       - run: aws configure import --csv file://secrets.txt
       - name: verify profile correctly imported
         run: aws configure list-profiles
-      - run: aws configure list
   edit-claudia-json:
     runs-on: ubuntu-latest
     steps:
