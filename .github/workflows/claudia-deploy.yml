@@ -15,7 +15,12 @@ jobs:
       - run: npm install -g claudia
       - name: deploy to lambda using claudia
         run: claudia create --region us-west-1 --handler lambda.handler > ./test.json
-      - run: cat ./test.json
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: "claudia.json"
+          json: cat ./test.json
   update-claudia:
     runs-on: ubuntu-latest
     steps:
