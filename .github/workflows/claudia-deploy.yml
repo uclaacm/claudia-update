@@ -23,7 +23,11 @@ jobs:
       # - run: export AWS_DEFAULT_PROFILE=backend-migration
       # - run: echo $AWS_REGION
       # - run: aws configure list --profile backend-migration
-      - run: aws iam list-roles
+      # - run: aws iam list-roles
+      # - name: delete claudia role that already exists, throwing error
+      #   run: aws iam delete-role-policy --role-name lambda.handler --policy-name log-writer
+      # - run: aws iam delete-role --role-name lambda.handler
+      
       - run: claudia create --region us-west-1 --handler lambda.handler 
   update-claudia:
     runs-on: ubuntu-latest
