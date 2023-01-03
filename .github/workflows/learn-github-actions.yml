@@ -17,3 +17,5 @@ jobs:
           SUPER_SECRET: ${{ secrets.SECRET }}
         run: echo "$SUPER_SECRET" > ./secrets.txt
       - run: aws configure import --csv file://secrets.txt
+      - name: verify profile correctly imported
+        run: aws configure list-profiles
