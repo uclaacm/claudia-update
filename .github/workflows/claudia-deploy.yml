@@ -5,6 +5,7 @@ jobs:
   first-claudia-deployment:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - shell: bash
         env: 
           SUPER_SECRET: ${{ secrets.SECRET }}
