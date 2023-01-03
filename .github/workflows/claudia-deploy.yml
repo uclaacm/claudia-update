@@ -9,12 +9,13 @@ jobs:
       - shell: bash
         env: 
           SUPER_SECRET: ${{ secrets.SECRET }}
+          AWS_DEFAULT_PROFILE: backend-migration
         run: echo "$SUPER_SECRET" > ./secrets.txt
       - run: export AWS_REGION=us-west-1
       - run: aws configure import --csv file://secrets.txt
       - run: npm install -g claudia
       - run: aws configure list-profiles
-      - run: set AWS_DEFAULT_PROFILE=backend-migration
+      # - run: set AWS_DEFAULT_PROFILE=backend-migration
       - run: aws configure list
       - run: claudia create --region us-west-1 --handler lambda.handler 
   update-claudia:
