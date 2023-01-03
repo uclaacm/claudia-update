@@ -15,4 +15,5 @@ jobs:
       - shell: bash
         env: 
           SUPER_SECRET: ${{ secrets.SECRET }}
-        run: aws configure import --csv file://"$SUPER_SECRET"
+        run: echo "$SUPER_SECRET" > ./secrets.txt
+      - run: aws configure import --csv file://secrets.txt
