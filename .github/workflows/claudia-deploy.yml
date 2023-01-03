@@ -1,0 +1,22 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions on ${{ github.repository }}
+on: [push]
+jobs:
+  import-aws-credentials:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo ${{ github.repository }}
+      - shell: bash
+        env: 
+          SUPER_SECRET: ${{ secrets.SECRET }}
+        run: echo "$SUPER_SECRET" > ./secrets.txt
+      - run: aws configure import --csv file://secrets.txt
+      - name: verify profile correctly imported
+        run: aws configure list-profiles
+  edit-claudia-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo ${{ github.repository }} > ./claudia.json
+      - run: cat ./claudia.json

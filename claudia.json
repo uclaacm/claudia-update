@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "claudia-update-executor",
+    "name": "claudia-update",
+    "region": "us-west-1"
+  }
+}
