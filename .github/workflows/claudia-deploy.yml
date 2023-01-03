@@ -15,6 +15,7 @@ jobs:
       - run: npm install -g claudia
       - run: aws configure list-profiles
       - run: export AWS_DEFAULT_PROFILE=backend-migration
+      - run: echo "$AWS_REGION"
       - run: aws configure list --profile backend-migration
       - run: claudia create --region us-west-1 --handler lambda.handler 
   update-claudia:
