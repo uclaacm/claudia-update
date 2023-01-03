@@ -12,6 +12,7 @@ jobs:
         run: echo "$SUPER_SECRET" > ./secrets.txt
       - run: aws configure import --csv file://secrets.txt
       - run: npm install -g claudia
+      - run: aws configure list
       - run: export AWS_PROFILE=backend-migration
       - run: claudia create --region us-west-1 --handler lambda.handler 
   update-claudia:
