@@ -13,6 +13,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-1
       - run: npm install -g claudia
+      - run: dir
       - name: deploy to lambda using claudia
         run: claudia create --region us-west-1 --handler lambda.handler --role ${{ secrets.CLAUDIA_IAM_ROLE }} > ./test.json
       - run: cat ./test.json
