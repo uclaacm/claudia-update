@@ -23,7 +23,7 @@ jobs:
           git config --local user.email ${{ secrets.EMAIL }}
           git config --local user.name ${{ secrets.USERNAME }}
           git add ./claudia.json
-          git commit -m "Add claudia.json"
+          git commit --allow-empty -m "Add claudia.json"
           git push
   # update-claudia:
   #   runs-on: ubuntu-latest
