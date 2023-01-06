@@ -18,7 +18,6 @@ jobs:
         run: claudia create --region us-west-1 --handler lambda.handler --role ${{ secrets.CLAUDIA_IAM_ROLE }}
       - run: cat ./claudia.json
       - run: dir
-
       - name: Commit files
         id: commit
         run: |
