@@ -1,0 +1,8 @@
+{
+  "lambda": {
+    "role": "claudia-update-executor",
+    "name": "claudia-test",
+    "region": "us-west-1",
+    "sharedRole": true
+  }
+}
