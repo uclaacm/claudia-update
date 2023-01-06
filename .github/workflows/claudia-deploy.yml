@@ -15,10 +15,32 @@ jobs:
       - run: npm install -g claudia
       - run: dir
       - name: deploy to lambda using claudia
-        run: claudia create --region us-west-1 --handler lambda.handler --role ${{ secrets.CLAUDIA_IAM_ROLE }} > ./test.json
-      - run: cat ./test.json
+        run: claudia create --region us-west-1 --handler lambda.handler --role ${{ secrets.CLAUDIA_IAM_ROLE }}
+      - run: cat ./claudia.json
       - run: dir
-      
+
+      - name: Commit files
+        id: commit
+        run: |
+          git config --local user.email "jwcamry03@gmail.com"
+          git config --local user.name "JCamyre"
+          git add ./claudia.json
+          git commit -m "add claudia.json"
+          git push
+      #     git add -all
+      #     if [-z "$(git status --porcelain)"]; then
+      #       echo "::set-output name=push::false"
+      #     else
+      #       git commit -m "Add changes" -a
+      #       echo "::set-output name=push::true"
+      #     fi
+      #   shell: bash
+      # - name: Push changes
+      #   if: steps.commit.outputs.push == 'true'
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+
       # - name: create-json
       #   id: create-json
       #   uses: jsdaniell/create-json@v1.2.2
