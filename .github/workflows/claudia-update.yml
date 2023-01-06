@@ -18,11 +18,11 @@ jobs:
           git config --local user.email ${{ secrets.EMAIL }}
           git config --local user.name ${{ secrets.USERNAME }}
           git pull
-      - run: |
+      - name: Update function and test
+        run: |
           if test -f "./claudia.json"; then
             claudia update
+            claudia test-lambda
           fi
-      - name: test to make sure working
-        run: claudia test-lambda
 
 
