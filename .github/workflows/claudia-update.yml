@@ -15,12 +15,13 @@ jobs:
       - run: npm install -g claudia
       - name: Ensure claudia.json present from repo
         run: |
+          git config --local user.email ${{ secrets.EMAIL }}
+          git config --local user.name ${{ secrets.USERNAME }}
+          git pull
+      - run: |
           if test -f "./claudia.json"; then
-            git config --local user.email ${{ secrets.EMAIL }}
-            git config --local user.name ${{ secrets.USERNAME }}
-            git pull
+            claudia update
           fi
-      - run: claudia update
       - name: test to make sure working
         run: claudia test-lambda
 
