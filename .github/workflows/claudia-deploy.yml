@@ -22,31 +22,11 @@ jobs:
       - name: Commit files
         id: commit
         run: |
-          git config --local user.email "jwcamry03@gmail.com"
-          git config --local user.name "JCamyre"
+          git config --local user.email ${{ secrets.EMAIL }}
+          git config --local user.name ${{ secrets.USERNAME }}
           git add ./claudia.json
-          git commit -m "add claudia.json"
+          git commit -m "Add claudia.json"
           git push
-      #     git add -all
-      #     if [-z "$(git status --porcelain)"]; then
-      #       echo "::set-output name=push::false"
-      #     else
-      #       git commit -m "Add changes" -a
-      #       echo "::set-output name=push::true"
-      #     fi
-      #   shell: bash
-      # - name: Push changes
-      #   if: steps.commit.outputs.push == 'true'
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: create-json
-      #   id: create-json
-      #   uses: jsdaniell/create-json@v1.2.2
-      #   with:
-      #     name: "claudia.json"
-      #     json: cat ./test.json
   # update-claudia:
   #   runs-on: ubuntu-latest
   #   steps:
