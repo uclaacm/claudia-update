@@ -1,4 +1,4 @@
 exports.handler = function (event, context) {
   console.log(event);
-  context.succeed("we are in the test-deploy-5 branch: ", event.name);
+  context.succeed("we are in the test-deploy-6 branch: ", event.name);
 };
