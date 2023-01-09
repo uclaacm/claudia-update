@@ -20,11 +20,9 @@ jobs:
           git pull
       - name: Check if function exists, if so update
         run: |
-          aws lambda get-function --function-name claudia-tes > /dev/null 2> ./errors.txt
-          if test -f "./claudia.json" && [ ! -s ./errors.txt ]; then
+          aws lambda get-function --function-name claudia-test > /dev/null 2> ./errors.txt
+          if test -f "./claudia.json"; then
             claudia update
-          else
-            echo "Lambda function with name claudia-tes doesn't exist!"
           fi
 
 
