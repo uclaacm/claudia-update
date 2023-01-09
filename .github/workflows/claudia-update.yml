@@ -20,7 +20,8 @@ jobs:
           git pull
       - name: Update function and test
         run: |
-          if test -f "./claudia.json"; then
+          aws lambda get-function --function-name claudia-test > /dev/null 2> ./errors.txt
+          if test -f "./claudia.json" && ! -s ./errors.txt; then
             claudia update
           fi
 
