@@ -14,7 +14,7 @@ jobs:
           aws-region: us-west-1
       - run: npm install -g claudia
       - name: deploy to lambda using claudia
-        run: claudia create --region us-west-1 --handler lambda.handler --role ${{ secrets.CLAUDIA_IAM_ROLE }}
+        run: claudia create --name ${{ github.event.repository.name }} --region us-west-1 --handler lambda.handler --role ${{ secrets.CLAUDIA_IAM_ROLE }}
       - name: Commit files
         id: commit
         run: |
